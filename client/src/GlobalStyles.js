@@ -6,6 +6,13 @@ export default createGlobalStyle`
       --color-danger: #FF0060;
       --color-success: #1B9C85;
       --color-warning: #F7D060; 
+
+      --color-white:#FFFF;
+      --color-off-white:#cccccc;
+      --color-black:#1f1f1f;
+      --color-green:#1D261C;
+      --color-yellow:#F29A2E;
+      --font-roboto:'Roboto', sans-serif;
     }
 
 ::-webkit-scrollbar {
@@ -34,7 +41,7 @@ export default createGlobalStyle`
     border: 0;
     text-decoration:none;
     box-sizing: border-box;
-    
+  
 }
 
 html {
@@ -47,6 +54,8 @@ body{
     width: 100%;
     height: 100%;
     overflow-x: hidden;
+    font-family: var(--font-roboto);
+
 }
 
 `;

@@ -13,6 +13,7 @@ export default createGlobalStyle`
       --color-green:#1D261C;
       --color-yellow:#F29A2E;
       --font-roboto:'Roboto', sans-serif;
+      --footer-padding:3rem; 
     }
 
 ::-webkit-scrollbar {

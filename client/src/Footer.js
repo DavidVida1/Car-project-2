@@ -61,15 +61,19 @@ const Footer = () => {
           <a href="#">Privacy Policy</a>
         </div>
       </section>
+      <DivVerticalTitle>
+        <VerticalTitle>Designed by DAV</VerticalTitle>
+      </DivVerticalTitle>
     </FooterSection>
   );
 };
 
 const FooterSection = styled.footer`
-  background-color: black;
+  position: relative;
+  background-color: var(--color-black);
   color: white;
   & a {
-    color: white;
+    color: var(--color-white);
   }
 
   & aside {
@@ -136,7 +140,7 @@ const FooterSection = styled.footer`
       border-radius: 50%;
       padding: 6px;
       font-size: 30px;
-      border: 1px solid white;
+      border: 1px solid var(--color-white);
     }
     svg:hover {
       border-color: var(--color-yellow);
@@ -163,11 +167,32 @@ const FooterSection = styled.footer`
     content: "";
     position: absolute;
     top: 0;
-    left: 0;
+    left: 5%;
     background-color: rgba(255, 255, 255, 1);
     height: 1px;
-    width: 100%;
+    width: 90%;
   }
+`;
+const DivVerticalTitle = styled.div`
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 2px;
+  transform: translate(-5%, 15%);
+  border: 1px dotted rgb(255, 255, 255);
+  background-color: rgb(231, 60, 55);
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  border-radius: 2px;
+`;
+const VerticalTitle = styled.div`
+  padding: 1px;
+  letter-spacing: 5px;
+  rotate: 180deg;
+  writing-mode: vertical-rl;
+  border: 1px dotted rgb(255, 255, 255);
+  background-color: rgb(231, 60, 55);
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  border-radius: 2px;
 `;
 
 export default Footer;

@@ -9,7 +9,7 @@ export default createGlobalStyle`
 
       --color-white:#FFFF;
       --color-off-white:#cccccc;
-      --color-black:#1f1f1f;
+      --color-black:#000;
       --color-green:#1D261C;
       --color-yellow:#F29A2E;
       --font-roboto:'Roboto', sans-serif;

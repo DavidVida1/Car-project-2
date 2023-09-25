@@ -72,6 +72,8 @@ const FooterSection = styled.footer`
   position: relative;
   background-color: var(--color-black);
   color: white;
+  font-size: 1.6rem;
+  width: 100%;
   & a {
     color: var(--color-white);
   }
@@ -139,7 +141,7 @@ const FooterSection = styled.footer`
     svg {
       border-radius: 50%;
       padding: 6px;
-      font-size: 30px;
+      font-size: 3rem;
       border: 1px solid var(--color-white);
     }
     svg:hover {

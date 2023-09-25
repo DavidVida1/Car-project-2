@@ -34,7 +34,7 @@ const HeaderContainer = styled.section`
   z-index: 3;
   width: 100%;
   height: 65px;
-  font-size: 16px;
+  font-size: 1.9rem;
   padding-left: 1rem;
   padding-right: 1rem;
 

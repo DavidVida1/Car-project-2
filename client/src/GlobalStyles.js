@@ -8,11 +8,13 @@ export default createGlobalStyle`
       --color-warning: #F7D060; 
 
       --color-white:#FFFF;
-      --color-off-white:#cccccc;
+      --color-off-white:#EDF2F7;
       --color-black:#000;
       --color-green:#1D261C;
       --color-yellow:#F29A2E;
+      --color-gray:#C4C4C4;
       --font-roboto:'Roboto', sans-serif;
+      --meetingType-padding:4rem;
       --footer-padding:3rem; 
     }
 
@@ -34,6 +36,8 @@ export default createGlobalStyle`
   background: #363949;
 }
 
+
+
 *{
     margin: 0;
     padding: 0;
@@ -45,8 +49,10 @@ export default createGlobalStyle`
   
 }
 
-html {
+#root{position:relative}
 
+html {
+  font-size:62.5%;
   scroll-behavior: smooth;
 
 }

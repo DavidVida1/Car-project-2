@@ -1,41 +1,18 @@
 import styled from "styled-components";
-import test from "./assets/test.mp4";
+import HeroVideo from "./assets/HeroVideo.mp4";
 import MeetingDescription from "./MeetingDescription";
 
 const Home = () => {
-  const meetingTypeArray = [
-    {
-      name: "Chilling",
-      description:
-        "Discover a website that brings car enthusiasts together to enjoy exhilarating car meets solely for the joy of having fun.",
-      video: chillingVid,
-    },
-    {
-      name: "Cruising",
-      description: "",
-      video: cruisingVid,
-    },
-    {
-      name: "Socialize",
-      description: "",
-      video: socializeVid,
-    },
-    {
-      name: "notRacing",
-      description: "",
-      video: notRacingVid,
-    },
-  ];
-
   return (
     <>
       <ContainerHome>
-        <video src={test} autoPlay loop muted />
+        <video src={HeroVideo} autoPlay loop muted alt="hero-video" />
         <h1 className="heroText">
           Rev Up Your Social Life: Connect, Cruise, and Create Memories with
           MeetNRev<span>!</span>
         </h1>
       </ContainerHome>
+
       <MeetingDescription />
     </>
   );
@@ -58,7 +35,7 @@ const ContainerHome = styled.div`
     padding: 20px;
 
     font-weight: bold;
-    font-size: 65px;
+    font-size: 8rem;
     color: var(--color-white);
     transform: translate(-50%, -50%);
 

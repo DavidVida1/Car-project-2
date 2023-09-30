@@ -61,19 +61,19 @@ const Footer = () => {
           <a href="#">Privacy Policy</a>
         </div>
       </section>
-      <DivVerticalTitle>
-        <VerticalTitle>Designed by DAV</VerticalTitle>
-      </DivVerticalTitle>
     </FooterSection>
   );
 };
 
 const FooterSection = styled.footer`
   position: relative;
+  width: 100%;
+
   background-color: var(--color-black);
+
   color: white;
   font-size: 1.6rem;
-  width: 100%;
+
   & a {
     color: var(--color-white);
   }
@@ -84,20 +84,21 @@ const FooterSection = styled.footer`
     justify-content: flex-start;
     align-items: start;
     gap: 300px;
-    padding: 2rem 0 0.5rem 0;
+
+    padding: 3rem 0 0.5rem 0;
   }
 
   & h3 {
-    font-weight: bold;
     color: var(--color-yellow);
+    font-weight: bold;
   }
 
   & .logoText {
     padding-left: var(--footer-padding);
 
     a {
-      text-decoration: underline;
       width: max-content;
+      text-decoration: underline;
     }
     & a:hover {
       color: var(--color-yellow);
@@ -139,26 +140,29 @@ const FooterSection = styled.footer`
     }
 
     svg {
-      border-radius: 50%;
       padding: 6px;
+
       font-size: 3rem;
       border: 1px solid var(--color-white);
+      border-radius: 50%;
     }
     svg:hover {
-      border-color: var(--color-yellow);
       background-color: var(--color-green);
       color: var(--color-yellow);
+
+      border-color: var(--color-yellow);
     }
   }
 
   & .copyright {
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    width: 100%;
+
     padding: 30px 40px 15px 40px;
     margin-top: 20px;
-    position: relative;
-    width: 100%;
 
     & .termsPrivacy a {
       margin: 0 20px;
@@ -170,31 +174,10 @@ const FooterSection = styled.footer`
     position: absolute;
     top: 0;
     left: 5%;
-    background-color: rgba(255, 255, 255, 1);
     height: 1px;
     width: 90%;
+
+    background-color: rgba(255, 255, 255, 1);
   }
 `;
-const DivVerticalTitle = styled.div`
-  position: absolute;
-  right: 0;
-  top: 0;
-  padding: 2px;
-  transform: translate(-5%, 15%);
-  border: 1px dotted rgb(255, 255, 255);
-  background-color: rgb(231, 60, 55);
-  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
-  border-radius: 2px;
-`;
-const VerticalTitle = styled.div`
-  padding: 1px;
-  letter-spacing: 5px;
-  rotate: 180deg;
-  writing-mode: vertical-rl;
-  border: 1px dotted rgb(255, 255, 255);
-  background-color: rgb(231, 60, 55);
-  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
-  border-radius: 2px;
-`;
-
 export default Footer;

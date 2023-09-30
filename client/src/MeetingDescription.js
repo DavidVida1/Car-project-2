@@ -1,53 +1,57 @@
 import styled from "styled-components";
-import chilling from "./assets/Chilling.mp4";
-import cruising from "./assets/Cruising.mp4";
-import racing from "./assets/Racing.mp4";
-import social from "./assets/Social.mp4";
+import { useEffect, useState } from "react";
+import { PiArrowElbowRightDownDuotone } from "react-icons/pi";
+import meetingTypeArray from "./MeetingTypeArray";
+import { useNavigate } from "react-router-dom";
 
 const MeetingDescription = () => {
-  const meetingTypeArray = [
-    {
-      id: 1,
-      name: "Chilling",
-      description:
-        "Discover a website that brings car enthusiasts together to enjoy exhilarating car meets solely for the joy of having fun.",
-      video: chilling,
-    },
-    {
-      id: 2,
-      name: "Cruising",
-      description:
-        "Discover a website that brings car enthusiasts together to enjoy exhilarating car meets solely for the joy of having fun. Discover a website that brings car enthusiasts together to enjoy exhilarating car meets solely for the joy of having fun. Discover a website that brings car enthusiasts together to enjoy exhilarating car meets solely for the joy of having fun. Discover a website that brings car enthusiasts together to enjoy exhilarating car meets solely for the joy of having fun",
-      video: cruising,
-    },
-    {
-      id: 3,
-      name: "Socialize",
-      description:
-        "Discover a website that brings car enthusiasts together to enjoy exhilarating car meets solely for the joy of having fun.",
-      video: racing,
-    },
-    {
-      id: 4,
-      name: "Not Racing",
-      description:
-        "Discover a website that brings car enthusiasts together to enjoy exhilarating car meets solely for the joy of having fun.",
-      video: social,
-    },
-  ];
+  const navigate = useNavigate();
+  const [meetingSelected, setMeetingSelected] = useState(() => {
+    return 0;
+  });
+
+  const selectMeeting = (meetingId) => {
+    let index = meetingTypeArray.findIndex((meeting) => {
+      return meeting.id == meetingId;
+    });
+
+    setMeetingSelected(index);
+  };
+
+  useEffect(() => {
+    let meetingsBtn = document.getElementsByClassName("meetingsButton");
+    Array.from(meetingsBtn).forEach((element) => {
+      element.classList.remove("active");
+    });
+
+    let meetingActive = document.getElementById(
+      meetingTypeArray[meetingSelected].name
+    );
+    meetingActive.classList.add("active");
+
+    console.log(meetingActive);
+  }, [meetingSelected]);
+
   return (
     <MeetingDescriptionContainer>
       <nav className="leftSection">
         <ul>
           <header>
-            <h3>
+            <h4>
               Meeting Type <img src="./assets/svg/carGo.svg" alt="carGo img" />
-            </h3>
+            </h4>
           </header>
           {meetingTypeArray.map((meeting, index) => {
             return (
-              <li>
-                <button className="meetingsButton" key={index}>
+              <li id="list">
+                <button
+                  id={meeting.name}
+                  onClick={() => {
+                    selectMeeting(meeting.id);
+                  }}
+                  className="meetingsButton"
+                  key={index}
+                >
                   {meeting.name}
                 </button>
               </li>
@@ -57,12 +61,17 @@ const MeetingDescription = () => {
       </nav>
 
       <section className="rightSection">
-        <h2> {meetingTypeArray[1].name}</h2>
-        <p> {meetingTypeArray[1].description}</p>
-        <button className="joinButton">Explore Meetings</button>
+        <h3>{meetingTypeArray[meetingSelected].name}</h3>
+        <p>{meetingTypeArray[meetingSelected].description}</p>
+
+        <button className="joinButton" onClick={() => navigate(`/meetings`)}>
+          Explore Meetings
+          <PiArrowElbowRightDownDuotone />
+        </button>
+
         <aside className="meetingTypeVideo">
           <video
-            src={meetingTypeArray[1].video}
+            src={meetingTypeArray[meetingSelected].video}
             autoPlay
             loop
             muted
@@ -74,23 +83,21 @@ const MeetingDescription = () => {
   );
 };
 
-const MeetingDescriptionContainer = styled.div`
-  display: grid;
-  grid-template-columns: 30% auto;
+const MeetingDescriptionContainer = styled.section`
   position: relative;
+  display: grid;
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  grid-template-columns: 30% auto;
   background-color: var(--color-off-white);
   padding: 3rem var(--meetingType-padding);
-  box-shadow: 0 0 2px var(--color-green);
 
   .leftSection {
     justify-self: center;
     align-self: center;
-    box-shadow: 25px 0 20px -20px rgba(0, 0, 0, 0.45);
     padding: 20px;
     border-radius: 8px;
-    height: 100%;
+
     ul {
       display: grid;
       grid-template-columns: repeat(1, 1fr);
@@ -103,7 +110,7 @@ const MeetingDescriptionContainer = styled.div`
       width: 100%;
       grid-area: 1 / 1 / span 1 / span;
 
-      h3 {
+      h4 {
         font-weight: 600;
         font-size: 4rem;
         line-height: 1.3;
@@ -124,20 +131,22 @@ const MeetingDescriptionContainer = styled.div`
     li .meetingsButton {
       font-size: 2.1rem;
       font-weight: 600;
+      background-color: transparent;
       color: var(--color-gray);
       padding: 16px 8px;
-
       width: 100%;
       border-radius: 8px;
       text-align: left;
       box-shadow: inset 0 0 0px var(--color-green);
-      background-color: #fafafa;
 
       &:hover {
-        color: var(--color-black);
+        color: var(--color-green);
         text-indent: 10px;
-        box-shadow: 0 0 4px var(--color-green);
-        transition: color 0.5s ease-in-out, all 1s linear;
+        transition: color 0.5s ease-in-out, all 0.5s linear;
+      }
+      &.active {
+        color: var(--color-yellow);
+        box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
       }
     }
   }
@@ -145,31 +154,44 @@ const MeetingDescriptionContainer = styled.div`
   .rightSection {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
     width: 100%;
     height: 100%;
     gap: 5px;
+    margin-left: 60px;
 
     .joinButton {
+      display: flex;
+      width: 150px;
+      justify-content: center;
+      align-items: center;
+
+      color: var(--color-white);
+      font-weight: bold;
+
+      padding: 8px 4px;
+      margin-bottom: 24px;
+
+      background-color: var(--color-green);
       border: 1px solid var(--color-green);
       border-radius: 15px;
-      color: var(--color-white);
-      background-color: var(--color-green);
-      font-weight: bold;
-      padding: 8px 4px;
-      width: 150px;
-      margin-bottom: 24px;
+
+      svg {
+        color: var(--color-white);
+        font-size: 15px;
+      }
 
       &:hover {
         color: var(--color-yellow);
+        transform: scale(1.1);
       }
     }
     p {
       padding: 12px 12px 12px 0px;
-      color: var(--color-green);
+      color: var(--color-black);
       font-size: 1.5rem;
     }
-    h2 {
+    h3 {
       font-size: 5.5rem;
       font-weight: 600;
     }
@@ -177,11 +199,12 @@ const MeetingDescriptionContainer = styled.div`
     .meetingTypeVideo {
       display: block;
       aspect-ratio: 16 / 9;
-      height: 450px;
-      width: 800px;
+      height: auto;
+      width: 1200px;
 
       video {
         height: 100%;
+        width: 100%;
         border-radius: 10px;
       }
     }

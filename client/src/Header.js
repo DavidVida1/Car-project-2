@@ -11,7 +11,7 @@ const Header = () => {
           <a href="#">Home</a>
         </li>
         <li>
-          <a href="#">About</a>
+          <a href="#about">About</a>
         </li>
         <li>
           <a href="#">SetUpMeeting</a>
@@ -26,24 +26,29 @@ const Header = () => {
   );
 };
 
-const HeaderContainer = styled.section`
+const HeaderContainer = styled.header`
   display: flex;
   flex-direction: row;
   position: absolute;
-  justify-content: space-between;
-  z-index: 3;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 65px;
+
+  justify-content: space-between;
+
   font-size: 1.9rem;
   padding-left: 1rem;
   padding-right: 1rem;
+
+  z-index: 3;
 
   a:first-child {
     display: flex;
     vertical-align: center;
   }
   &:hover {
-    background-color: white;
+    background-color: var(--color-off-white);
     a {
       color: var(--color-black);
       text-shadow: none;
@@ -58,9 +63,10 @@ const HeaderContainer = styled.section`
 
   ul {
     display: flex;
-    list-style: none;
-    column-gap: 20px;
     height: 100%;
+    column-gap: 20px;
+
+    list-style: none;
   }
   li {
     display: block;
@@ -85,16 +91,19 @@ const HeaderContainer = styled.section`
     display: flex;
     align-self: center;
     column-gap: 20px;
+
     & a {
       align-self: center;
       height: auto;
       text-shadow: 1px 1px 1px var(--color-green);
     }
+
     & a:first-child {
-      text-transform: uppercase;
       line-height: 65px;
+      text-transform: uppercase;
       padding: 0px 10px;
     }
+
     & a:first-child:hover {
       background-color: var(--color-off-white);
       text-shadow: 1px 1px 1px var(--color-green);
@@ -104,7 +113,7 @@ const HeaderContainer = styled.section`
       border: 1px solid var(--color-green);
       background-color: var(--color-green);
       border-radius: 20px;
-      padding: 5px 15px;
+      padding: 4px 16px;
 
       &:hover {
         color: var(--color-yellow);

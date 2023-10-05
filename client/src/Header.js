@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <HeaderContainer>
       <a href="/">
-        <img src="./assets/svg/logo.svg" alt="MeetNRev Logo" />
+        <img src="/assets/svg/logo.svg" alt="MeetNRev Logo" />
       </a>
       <ul>
         <li>
@@ -30,16 +30,15 @@ const HeaderContainer = styled.header`
   display: flex;
   flex-direction: row;
   position: absolute;
+  justify-content: space-between;
   top: 0;
   left: 0;
   width: 100%;
   height: 65px;
 
-  justify-content: space-between;
-
   font-size: 1.9rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 6rem;
+  padding-right: 6rem;
 
   z-index: 3;
 

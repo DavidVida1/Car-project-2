@@ -7,6 +7,7 @@ export default createGlobalStyle`
       --color-success: #1B9C85;
       --color-warning: #F7D060; 
 
+      --background-color-black:  rgba(18, 19, 21, 1);
       --color-white:#FFFF;
       --color-off-white:#EDF2F7;
       --color-off-white2:#E2E3E2;

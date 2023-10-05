@@ -3,6 +3,7 @@ import HeroVideo from "./assets/HeroVideo.mp4";
 import About from "./About";
 import MeetingDescription from "./MeetingDescription";
 import { useNavigate } from "react-router-dom";
+import MeetingsHeroImg from "./MeetingsHeroImg";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -19,6 +20,7 @@ const Home = () => {
         </aside>
       </ContainerHome>
       <About />
+      <MeetingsHeroImg />
       <MeetingDescription />
     </>
   );
@@ -46,7 +48,6 @@ const ContainerHome = styled.section`
     font-weight: bold;
     text-align: center;
 
-    /*border: 3px solid #f1f1f1;*/
     border-radius: 5px;
     background-color: rgba(0, 0, 0, 0.3);
 

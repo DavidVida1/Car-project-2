@@ -1,27 +1,100 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import meetingTypeArray from "./MeetingTypeArray";
+import meetingdb from "./MeetingDb";
+import { useNavigate } from "react-router-dom";
+import MeetingCards from "./MeetingCards";
 
 const Meetings = () => {
+  const navigate = useNavigate();
+  const [meetingSelectedIndex, setMeetingSelected] = useState(() => {
+    return 0;
+  });
+
+  const [meetingDatabase, setMeetingDatabase] = useState(null);
+
+  const selectMeeting = (meetingName) => {
+    let index = meetingTypeArray.findIndex((meeting) => {
+      return meeting.name == meetingName;
+    });
+
+    setMeetingSelected(index);
+  };
+
+  useEffect(() => {
+    let meetingsBtn = document.getElementsByClassName("meetingsButton");
+
+    Array.from(meetingsBtn).forEach((element) => {
+      element.classList.remove("active");
+    });
+
+    let meetingActiveId =
+      0 <= meetingSelectedIndex &&
+      meetingSelectedIndex < meetingTypeArray.length
+        ? meetingTypeArray[meetingSelectedIndex].name
+        : "all";
+
+    let meetingActive = document.getElementById(meetingActiveId);
+    meetingActive.classList.add("active");
+
+    /*-------meetingsSelectedByType-------*/
+    console.log(meetingActive);
+    const meetingsFiltered = meetingdb.filter((meeting) => {
+      console.log(meetingActiveId === "all");
+      if (meetingActiveId == "all" || meeting.typeId == meetingActiveId) {
+        return meeting;
+      }
+    });
+    setMeetingDatabase(meetingsFiltered);
+
+    console.log(meetingsFiltered);
+    /*-------meetingsSelectedByType-------*/
+  }, [meetingSelectedIndex]);
+
   return (
     <MeetingsSection>
       <nav className="meetingsNav">
-        <a>All</a>
+        <button
+          id="all"
+          className="meetingsButton"
+          onClick={() => {
+            selectMeeting("all");
+          }}
+        >
+          All
+        </button>
         {meetingTypeArray.map((meeting) => {
-          return <a key={meeting.name}>{meeting.name}</a>;
+          return (
+            <button
+              id={meeting.name}
+              onClick={() => {
+                selectMeeting(meeting.name);
+              }}
+              className="meetingsButton"
+              key={meeting.name}
+            >
+              {meeting.name}
+            </button>
+          );
         })}
       </nav>
-
-      <DiscoverItem>Hello</DiscoverItem>
+      <section className="meetingList">
+        {meetingDatabase == null ? (
+          <p>Loading...</p>
+        ) : (
+          meetingDatabase.map((meeting) => {
+            return <MeetingCards meeting={meeting} />;
+          })
+        )}
+      </section>
     </MeetingsSection>
   );
 };
 
 const MeetingsSection = styled.main`
-  position: relative;
-  height: 100vh;
-  width: 100vw;
-  background-color: var(--color-off-white1);
+  height: 100%;
+  width: 100%;
+  background-color: var(--color-off-white2);
   padding: 16rem 8rem;
 
   .meetingsNav {
@@ -31,54 +104,32 @@ const MeetingsSection = styled.main`
     justify-content: center;
 
     width: 100%;
-    font-size: 2rem;
-    font-weight: bold;
-    color: var(--color-gray);
-    a {
+
+    & .meetingsButton {
       margin: 0rem 2.2rem;
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--color-gray);
+      background-color: transparent;
 
       &:hover {
         color: var(--color-green);
       }
+
+      &.active {
+        color: var(--color-yellow);
+        box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+      }
     }
   }
-`;
-const DiscoverItem = styled.div`
-  display: grid;
-  position: relative;
-  place-items: center;
-  margin-top: 12rem;
-  border-style: solid;
-  border-color: black;
-  border-radius: 5px;
-  width: 300px;
-  height: 360px;
-  transition: 1s ease-in-out;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 
-  &:hover {
-    transform: translateY(10px);
-  }
-  &:after {
-    content: "";
-    display: block;
-    position: absolute;
-    border-radius: 5px;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transition: 0.5s all;
-    opacity: 0;
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 204, 255, 0.1),
-      rgba(191, 128, 64, 0.3)
-    );
-  }
-  &:hover:after {
-    opacity: 1;
+  .meetingList {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
   }
 `;
+
 export default Meetings;

@@ -32,24 +32,17 @@ const AboutSection = styled.section`
   display: flex;
   position: relative;
   height: 40vh;
-
-  padding: 5rem var(--meetingType-padding);
-
-  /*background-color: rgba(219, 219, 225, 1);*/
-  background-color: rgba(18, 19, 21, 1);
+  padding: 4rem 12rem;
+  background-color: var(--background-color-black);
 
   .aboutText {
     width: 82%;
     height: auto;
-
     padding-right: 15%;
-
-    /*color:var(--color-black)*/
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.8);
     text-align: justify;
     font-size: 6.5rem;
     font-weight: 900;
-
     box-shadow: 25px 0 20px -25px rgba(0, 0, 0, 0.45);
   }
 

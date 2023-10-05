@@ -20,6 +20,7 @@ const MeetingDescription = () => {
 
   useEffect(() => {
     let meetingsBtn = document.getElementsByClassName("meetingsButton");
+
     Array.from(meetingsBtn).forEach((element) => {
       element.classList.remove("active");
     });
@@ -28,8 +29,6 @@ const MeetingDescription = () => {
       meetingTypeArray[meetingSelected].name
     );
     meetingActive.classList.add("active");
-
-    console.log(meetingActive);
   }, [meetingSelected]);
 
   return (
@@ -64,7 +63,14 @@ const MeetingDescription = () => {
         <h3>{meetingTypeArray[meetingSelected].name}</h3>
         <p>{meetingTypeArray[meetingSelected].description}</p>
 
-        <button className="joinButton" onClick={() => navigate(`/meetings`)}>
+        <button
+          className="joinButton"
+          onClick={() =>
+            navigate(
+              `/meetings/${encodeURI(meetingTypeArray[meetingSelected].name)}`
+            )
+          }
+        >
           Explore Meetings
           <PiArrowElbowRightDownDuotone />
         </button>

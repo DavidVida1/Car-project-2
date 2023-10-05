@@ -9,7 +9,7 @@ const Footer = () => {
     <FooterSection>
       <aside>
         <section className="logoText">
-          <img src="./assets/svg/logoReverse.svg" alt="MeetNRev Logo" />{" "}
+          <img src="/assets/svg/logoReverse.svg" alt="MeetNRev Logo" />{" "}
           <p>
             Rev Up Your Social Life: Connect, Cruise, and Create Memories with
             MeetNRev!&nbsp;
@@ -68,9 +68,7 @@ const Footer = () => {
 const FooterSection = styled.footer`
   position: relative;
   width: 100%;
-
   background-color: var(--color-black);
-
   color: white;
   font-size: 1.6rem;
 

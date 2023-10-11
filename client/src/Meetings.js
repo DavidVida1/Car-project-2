@@ -38,16 +38,17 @@ const Meetings = () => {
     meetingActive.classList.add("active");
 
     /*-------meetingsSelectedByType-------*/
-    console.log(meetingActive);
+
     const meetingsFiltered = meetingdb.filter((meeting) => {
-      console.log(meetingActiveId === "all");
       if (meetingActiveId == "all" || meeting.typeId == meetingActiveId) {
         return meeting;
       }
     });
-    setMeetingDatabase(meetingsFiltered);
+    setMeetingDatabase(null);
+    setTimeout(() => {
+      setMeetingDatabase(meetingsFiltered);
+    }, 500);
 
-    console.log(meetingsFiltered);
     /*-------meetingsSelectedByType-------*/
   }, [meetingSelectedIndex]);
 
@@ -80,10 +81,17 @@ const Meetings = () => {
       </nav>
       <section className="meetingList">
         {meetingDatabase == null ? (
-          <p>Loading...</p>
+          <p className="loading">Loading...</p>
         ) : (
           meetingDatabase.map((meeting) => {
-            return <MeetingCards meeting={meeting} />;
+            return (
+              <MeetingCards
+                meeting={meeting}
+                meetingTypeSelected={meetingTypeArray.find((t) => {
+                  return t.name == meeting.typeId;
+                })}
+              />
+            );
           })
         )}
       </section>
@@ -92,7 +100,8 @@ const Meetings = () => {
 };
 
 const MeetingsSection = styled.main`
-  height: 100%;
+  position: relative;
+  min-height: 100vh;
   width: 100%;
   background-color: var(--color-off-white2);
   padding: 16rem 8rem;
@@ -129,6 +138,14 @@ const MeetingsSection = styled.main`
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
+    gap: 75px;
+    margin-top: 12rem;
+
+    .loading {
+      font-size: 3rem;
+      color: var(--color-yellow);
+      text-shadow: 0px 0px 4px var(--color-gray);
+    }
   }
 `;
 

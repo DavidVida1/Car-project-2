@@ -135,6 +135,7 @@ const FooterSection = styled.footer`
     ul {
       display: flex;
       flex-direction: row;
+      list-style-type: none;
     }
 
     svg {

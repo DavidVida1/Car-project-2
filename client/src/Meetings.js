@@ -4,6 +4,8 @@ import meetingTypeArray from "./MeetingTypeArray";
 import meetingdb from "./MeetingDb";
 import { useNavigate } from "react-router-dom";
 import MeetingCards from "./MeetingCards";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Meetings = () => {
   const navigate = useNavigate();
@@ -50,11 +52,16 @@ const Meetings = () => {
     }, 500);
 
     /*-------meetingsSelectedByType-------*/
+    AOS.init({
+      duration: 800,
+      easing: "ease",
+      once: true,
+    });
   }, [meetingSelectedIndex]);
 
   return (
     <MeetingsSection>
-      <nav className="meetingsNav">
+      <nav className="meetingsNav" data-aos="fade-up" data-aos-delay="100">
         <button
           id="all"
           className="meetingsButton"

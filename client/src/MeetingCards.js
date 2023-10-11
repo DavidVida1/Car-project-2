@@ -1,9 +1,19 @@
 import styled from "styled-components";
 import { AiOutlineArrowDown } from "react-icons/ai";
+import { useEffect, useState } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const MeetingCards = ({ meeting, meetingTypeSelected }) => {
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      easing: "ease",
+      once: true,
+    });
+  }, []);
   return (
-    <CardsSection>
+    <CardsSection data-aos="fade-up" data-aos-delay="100">
       <section className="cardImg">
         <img src={meetingTypeSelected.heroImg} />
       </section>
@@ -33,17 +43,20 @@ const CardsSection = styled.section`
   border-radius: 15px;
   width: 350px;
   height: 360px;
-  transition: all 1s ease-in-out;
+  transition: 1s ease-in-out;
   padding: 15px;
 
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+  /*box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset,
     rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
-    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;*/
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 
   &:hover {
     transform: translateY(10px);
     height: 450px;
+    transition: all 1s ease-in-out;
 
     & .infoIcon {
       opacity: 0;
@@ -132,13 +145,13 @@ const CardsSection = styled.section`
       display: grid;
       gap: 5px;
       grid-template-columns: 65% 35%;
-
       .meetingAddress {
-        border: 1px solid var(--color-yellow);
+        /*border: 1px solid var(--color-yellow);*/
         border-radius: 10px;
         color: white;
         background-color: var(--color-yellow);
         padding: 5px 10px;
+        box-shadow: inset 0 0 2px 1px rgba(0, 0, 0, 0.5);
 
         &:hover {
           color: var(--color-green);
@@ -152,6 +165,7 @@ const CardsSection = styled.section`
         color: white;
         background-color: var(--color-green);
         padding: 5px 10px;
+        box-shadow: inset 0 0 2px 1px rgba(0, 0, 0, 0.5);
       }
     }
   }

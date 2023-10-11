@@ -3,17 +3,31 @@ import HeroVideo from "./assets/HeroVideo.mp4";
 import About from "./About";
 import MeetingDescription from "./MeetingDescription";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import MeetingsHeroImg from "./MeetingsHeroImg";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Home = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      easing: "ease",
+      once: true,
+    });
+  }, []);
+
   return (
     <>
       <ContainerHome>
         <video src={HeroVideo} autoPlay loop muted alt="hero-video" />
         <aside className="heroText">
-          <h1>Rev Up Your Social Life </h1>
-          <h2>
+          <h1 data-aos="fade-down" data-aos-delay="100">
+            Rev Up Your Social Life
+          </h1>
+          <h2 data-aos="fade-left" data-aos-delay="150">
             Connect, Cruise, and Create Memories with MeetNRev<span>!</span>
           </h2>
           <button onClick={() => navigate(`/meetings`)}>Join a Meeting</button>

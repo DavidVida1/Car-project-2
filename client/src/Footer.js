@@ -3,12 +3,21 @@ import React, { useEffect, useState } from "react";
 import { FiFacebook } from "react-icons/fi";
 import { FiTwitter } from "react-icons/fi";
 import { AiOutlineInstagram } from "react-icons/ai";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Footer = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      easing: "ease",
+      once: true,
+    });
+  }, []);
   return (
     <FooterSection>
       <aside>
-        <section className="logoText">
+        <section className="logoText" data-aos="fade-up" data-aos-delay="100">
           <img src="/assets/svg/logoReverse.svg" alt="MeetNRev Logo" />{" "}
           <p>
             Rev Up Your Social Life: Connect, Cruise, and Create Memories with
@@ -17,7 +26,11 @@ const Footer = () => {
           </p>
         </section>
 
-        <section className="navigationFooter">
+        <section
+          className="navigationFooter"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
           <h3>Navigation</h3>
           <ul>
             <li>
@@ -32,7 +45,7 @@ const Footer = () => {
           </ul>
         </section>
 
-        <section className="media">
+        <section className="media" data-aos="fade-up" data-aos-delay="300">
           <h3>Follow us</h3>
           <ul>
             <li>

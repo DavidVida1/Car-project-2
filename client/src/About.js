@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import styled from "styled-components";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const About = () => {
   useEffect(() => {
@@ -15,11 +17,22 @@ const About = () => {
     cursor.parentElement.addEventListener("mouseleave", () => {
       cursor.style.display = "none";
     });
+
+    AOS.init({
+      duration: 800,
+      easing: "ease",
+      once: true,
+    });
   }, []);
 
   return (
     <AboutSection>
-      <h2 className="aboutText" id="about">
+      <h2
+        className="aboutText"
+        id="about"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
         Discover a website that brings car enthusiasts together to enjoy
         exhilarating car meets solely for the joy of having fun.
       </h2>

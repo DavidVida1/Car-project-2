@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { PiArrowElbowRightDownDuotone } from "react-icons/pi";
 import meetingTypeArray from "./MeetingTypeArray";
 import { useNavigate } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const MeetingDescription = () => {
   const navigate = useNavigate();
@@ -29,11 +31,17 @@ const MeetingDescription = () => {
       meetingTypeArray[meetingSelected].name
     );
     meetingActive.classList.add("active");
+
+    AOS.init({
+      duration: 800,
+      easing: "ease",
+      once: true,
+    });
   }, [meetingSelected]);
 
   return (
     <MeetingDescriptionContainer>
-      <nav className="leftSection">
+      <nav className="leftSection" data-aos="fade-up" data-aos-delay="100">
         <ul>
           <header>
             <h4>
@@ -59,7 +67,7 @@ const MeetingDescription = () => {
         </ul>
       </nav>
 
-      <section className="rightSection">
+      <section className="rightSection" data-aos="fade-up" data-aos-delay="100">
         <h3>{meetingTypeArray[meetingSelected].name}</h3>
         <p>{meetingTypeArray[meetingSelected].description}</p>
 
@@ -75,7 +83,11 @@ const MeetingDescription = () => {
           <PiArrowElbowRightDownDuotone />
         </button>
 
-        <aside className="meetingTypeVideo">
+        <aside
+          className="meetingTypeVideo"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
           <video
             src={meetingTypeArray[meetingSelected].video}
             autoPlay

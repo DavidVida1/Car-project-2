@@ -1,8 +1,18 @@
 import { useEffect } from "react";
 import meetingTypeArray from "./MeetingTypeArray";
 import styled from "styled-components";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const About = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      easing: "ease",
+      once: true,
+    });
+  }, []);
+
   return (
     <MeetingHeroImgSection>
       {meetingTypeArray.map((meetingImg, index) => {

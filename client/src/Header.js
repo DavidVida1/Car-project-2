@@ -1,8 +1,19 @@
 import styled from "styled-components";
+import { useEffect, useState } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Header = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      easing: "ease",
+      once: true,
+    });
+  }, []);
+
   return (
-    <HeaderContainer>
+    <HeaderContainer data-aos="fade-down" data-aos-delay="100">
       <a href="/">
         <img src="/assets/svg/logo.svg" alt="MeetNRev Logo" />
       </a>

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import meetingTypeArray from "./MeetingTypeArray";
 import meetingdb from "./MeetingDb";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams, NavLink } from "react-router-dom";
 import MeetingCards from "./MeetingCards";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -12,8 +12,8 @@ const Meetings = () => {
   const [meetingSelectedIndex, setMeetingSelected] = useState(() => {
     return 0;
   });
-
   const [meetingDatabase, setMeetingDatabase] = useState(null);
+  const { name } = useParams();
 
   const selectMeeting = (meetingName) => {
     let index = meetingTypeArray.findIndex((meeting) => {
@@ -52,54 +52,55 @@ const Meetings = () => {
     }, 500);
 
     /*-------meetingsSelectedByType-------*/
+  }, [meetingSelectedIndex]);
+
+  useEffect(() => {
     AOS.init({
       duration: 800,
       easing: "ease",
       once: true,
     });
-  }, [meetingSelectedIndex]);
+  }, []);
+
+  useEffect(() => {
+    selectMeeting(decodeURI(name));
+  }, [name]);
 
   return (
     <MeetingsSection>
       <nav className="meetingsNav" data-aos="fade-up" data-aos-delay="100">
-        <button
-          id="all"
-          className="meetingsButton"
-          onClick={() => {
-            selectMeeting("all");
-          }}
-        >
+        <NavLink id="all" className="meetingsButton" to={`/meetings/all`}>
           All
-        </button>
+        </NavLink>
         {meetingTypeArray.map((meeting) => {
           return (
-            <button
+            <NavLink
               id={meeting.name}
-              onClick={() => {
-                selectMeeting(meeting.name);
-              }}
+              to={`/meetings/${meeting.name}`}
               className="meetingsButton"
               key={meeting.name}
             >
               {meeting.name}
-            </button>
+            </NavLink>
           );
         })}
       </nav>
       <section className="meetingList">
         {meetingDatabase == null ? (
-          <p className="loading">Loading...</p>
+          <article className="loading">Loading...</article>
         ) : (
-          meetingDatabase.map((meeting) => {
-            return (
-              <MeetingCards
-                meeting={meeting}
-                meetingTypeSelected={meetingTypeArray.find((t) => {
-                  return t.name == meeting.typeId;
-                })}
-              />
-            );
-          })
+          <section data-aos="fade-up" data-aos-delay="100">
+            {meetingDatabase.map((meeting) => {
+              return (
+                <MeetingCards
+                  meeting={meeting}
+                  meetingTypeSelected={meetingTypeArray.find((t) => {
+                    return t.name == meeting.typeId;
+                  })}
+                />
+              );
+            })}
+          </section>
         )}
       </section>
     </MeetingsSection>
@@ -112,6 +113,8 @@ const MeetingsSection = styled.main`
   width: 100%;
   background-color: var(--color-off-white2);
   padding: 16rem 8rem;
+  display: grid;
+  grid-template-rows: 75px auto;
 
   .meetingsNav {
     position: relative;
@@ -140,15 +143,25 @@ const MeetingsSection = styled.main`
   }
 
   .meetingList {
-    display: flex;
     position: relative;
-    flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 75px;
-    margin-top: 12rem;
+    width: 100%;
+    height: 100%;
+
+    & > section {
+      display: flex;
+      position: relative;
+      flex-direction: row;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 75px;
+      margin-top: 12rem;
+    }
 
     .loading {
+      display: grid;
+      width: 100%;
+      height: 100%;
+      place-items: center;
       font-size: 3rem;
       color: var(--color-yellow);
       text-shadow: 0px 0px 4px var(--color-gray);

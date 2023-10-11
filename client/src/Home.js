@@ -13,7 +13,7 @@ const Home = () => {
 
   useEffect(() => {
     AOS.init({
-      duration: 800,
+      duration: 500,
       easing: "ease",
       once: true,
     });
@@ -30,7 +30,9 @@ const Home = () => {
           <h2 data-aos="fade-left" data-aos-delay="150">
             Connect, Cruise, and Create Memories with MeetNRev<span>!</span>
           </h2>
-          <button onClick={() => navigate(`/meetings`)}>Join a Meeting</button>
+          <button onClick={() => navigate(`/meetings/all`)}>
+            Join a Meeting
+          </button>
         </aside>
       </ContainerHome>
       <About />
@@ -56,16 +58,15 @@ const ContainerHome = styled.section`
     top: 50%;
     left: 50%;
     width: 55%;
-    padding: 20px;
-
-    color: var(--color-white);
-    font-weight: bold;
-    text-align: center;
-
-    border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.3);
 
     transform: translate(-50%, -50%);
+
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: var(--color-white);
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
 
     & h1 {
       font-size: 8rem;

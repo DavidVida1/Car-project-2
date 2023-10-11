@@ -5,15 +5,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const MeetingCards = ({ meeting, meetingTypeSelected }) => {
-  useEffect(() => {
-    AOS.init({
-      duration: 800,
-      easing: "ease",
-      once: true,
-    });
-  }, []);
   return (
-    <CardsSection data-aos="fade-up" data-aos-delay="100">
+    <CardsSection>
       <section className="cardImg">
         <img src={meetingTypeSelected.heroImg} />
       </section>
@@ -66,7 +59,7 @@ const CardsSection = styled.section`
   & .cardImg {
     position: relative;
     width: 90%;
-    height: 250px;
+    height: auto;
     border-radius: 15px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
       rgba(0, 0, 0, 0.22) 0px 10px 10px;

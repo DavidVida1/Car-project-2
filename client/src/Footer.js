@@ -90,12 +90,10 @@ const FooterSection = styled.footer`
   }
 
   & aside {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: start;
-    gap: 300px;
-
+    display: grid;
+    grid-template-columns: repeat(3, 25%);
+    justify-content: space-around;
+    width: 100%;
     padding: 3rem 0 0.5rem 0;
   }
 
@@ -116,12 +114,6 @@ const FooterSection = styled.footer`
     }
   }
 
-  & section p {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-  }
-
   & section ul {
     gap: 10px;
   }
@@ -140,6 +132,7 @@ const FooterSection = styled.footer`
   }
 
   & .media {
+    align-self: right;
     padding-top: 2rem;
 
     h3 {

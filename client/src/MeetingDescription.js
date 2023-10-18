@@ -109,6 +109,7 @@ const MeetingDescriptionContainer = styled.section`
   grid-template-columns: 30% auto;
   background-color: var(--color-off-white);
   padding: 3rem var(--meetingType-padding);
+  gap: 10px;
 
   .leftSection {
     justify-self: center;
@@ -176,7 +177,6 @@ const MeetingDescriptionContainer = styled.section`
     width: 100%;
     height: 100%;
     gap: 5px;
-    margin-left: 60px;
 
     .joinButton {
       display: flex;
@@ -218,7 +218,7 @@ const MeetingDescriptionContainer = styled.section`
       display: block;
       aspect-ratio: 16 / 9;
       height: auto;
-      width: 1200px;
+      width: 90%;
 
       video {
         height: 100%;

@@ -57,7 +57,7 @@ const ContainerHome = styled.section`
 
     top: 50%;
     left: 50%;
-    width: 55%;
+    width: max(375px, 55%);
 
     transform: translate(-50%, -50%);
 
@@ -69,10 +69,10 @@ const ContainerHome = styled.section`
     text-align: center;
 
     & h1 {
-      font-size: 8rem;
+      font-size: clamp(3rem, 4vw, 8rem);
     }
     & h2 {
-      font-size: 6rem;
+      font-size: clamp(3rem, 4vw, 6rem);
     }
     & span {
       color: var(--color-yellow);

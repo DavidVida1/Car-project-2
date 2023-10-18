@@ -44,7 +44,7 @@ const About = () => {
 const AboutSection = styled.section`
   display: flex;
   position: relative;
-  height: 40vh;
+  height: 35%;
   padding: 4rem 12rem;
   background-color: var(--background-color-black);
 
@@ -54,7 +54,7 @@ const AboutSection = styled.section`
     padding-right: 15%;
     color: rgba(255, 255, 255, 0.8);
     text-align: justify;
-    font-size: 6.5rem;
+    font-size: clamp(1rem, 4vw, 6.5rem);
     font-weight: 900;
     box-shadow: 25px 0 20px -25px rgba(0, 0, 0, 0.45);
   }
@@ -76,5 +76,17 @@ const AboutSection = styled.section`
   .aboutText:hover ~ .cursor {
     transform: scale(5);
   }
+
+  @media screen and (max-width: 1200px) {
+    & {
+      padding: 4rem;
+    }
+    .aboutText {
+      width: 90%;
+      padding-right: 10%;
+      padding-top: 15px;
+    }
+  }
 `;
+
 export default About;

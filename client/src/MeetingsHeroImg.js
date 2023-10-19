@@ -7,7 +7,7 @@ import "aos/dist/aos.css";
 const About = () => {
   useEffect(() => {
     AOS.init({
-      duration: 800,
+      duration: 100,
       easing: "ease",
       once: true,
     });
@@ -17,7 +17,7 @@ const About = () => {
     <MeetingHeroImgSection>
       {meetingTypeArray.map((meetingImg, index) => {
         return (
-          <aside className="imgContent">
+          <aside className="imgContent" data-aos="fade-up" data-aos-delay="100">
             <img className="heroImg" src={meetingImg.heroImg}></img>
             <h2 className="heroText">{meetingImg.text}</h2>
           </aside>
@@ -73,6 +73,9 @@ const MeetingHeroImgSection = styled.section`
   @media screen and (max-width: 768px) {
     & .imgContent {
       height: 125px;
+      & .heroText {
+        left: 10px;
+      }
     }
   }
 `;

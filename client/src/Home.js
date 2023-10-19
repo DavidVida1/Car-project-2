@@ -57,7 +57,7 @@ const ContainerHome = styled.section`
 
     top: 50%;
     left: 50%;
-    width: max(375px, 55%);
+    width: max(20%, 55%);
 
     transform: translate(-50%, -50%);
 

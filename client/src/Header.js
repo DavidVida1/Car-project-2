@@ -37,10 +37,10 @@ const Header = () => {
 
         <ul className="overlay-content">
           <li>
-            <a href="#">Home</a>
+            <a href="/">Home</a>
           </li>
           <li>
-            <a href="#about">About</a>
+            <a href="/#about">About</a>
           </li>
           <li>
             <a href="#">SetUpMeeting</a>
@@ -69,8 +69,8 @@ const HeaderContainer = styled.header`
   position: absolute;
   width: 100%;
   height: 65px;
-  font-size: 3rem;
-  font-weight: 600;
+  font-size: 2.5rem;
+  font-weight: bold;
   z-index: 2;
 
   & .logo {

@@ -50,14 +50,13 @@ const MeetingDescription = () => {
           </header>
           {meetingTypeArray.map((meeting, index) => {
             return (
-              <li id="list">
+              <li key={meeting}>
                 <button
                   id={meeting.name}
                   onClick={() => {
                     selectMeeting(meeting.id);
                   }}
                   className="meetingsButton"
-                  key={index}
                 >
                   {meeting.name}
                 </button>
@@ -111,25 +110,29 @@ const MeetingDescriptionContainer = styled.section`
   padding: 3rem var(--meetingType-padding);
   gap: 10px;
 
-  .leftSection {
+  @media screen and (max-width: 571px) {
+    grid-template-rows: 30% auto;
+    grid-template-columns: none;
+  }
+  & .leftSection {
     justify-self: center;
     align-self: center;
     padding: 20px;
     border-radius: 8px;
 
-    ul {
+    & ul {
       display: grid;
       grid-template-columns: repeat(1, 1fr);
       gap: 24px;
     }
 
-    header {
+    & header {
       display: flex;
       flex-direction: row;
       width: 100%;
       grid-area: 1 / 1 / span 1 / span;
 
-      h4 {
+      & h4 {
         font-weight: 600;
         font-size: 4rem;
         line-height: 1.3;
@@ -137,17 +140,13 @@ const MeetingDescriptionContainer = styled.section`
         margin-bottom: 12px;
         text-align: center;
         width: 100%;
-        img {
+        & img {
           height: 3rem;
         }
       }
-
-      img {
-        height: 20px;
-      }
     }
 
-    li .meetingsButton {
+    & li .meetingsButton {
       font-size: 2.1rem;
       font-weight: 600;
       background-color: transparent;
@@ -168,9 +167,28 @@ const MeetingDescriptionContainer = styled.section`
         box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
       }
     }
+
+    @media screen and (max-width: 571px) {
+      & ul {
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 0;
+
+        & header {
+          grid-column: 1/3;
+        }
+      }
+    }
   }
 
-  .rightSection {
+  @media screen and (max-width: 435px) {
+    & {
+      padding: 0px;
+    }
+  }
+
+  & .rightSection {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -178,7 +196,12 @@ const MeetingDescriptionContainer = styled.section`
     height: 100%;
     gap: 5px;
 
-    .joinButton {
+    @media screen and (max-width: 435px) {
+      & {
+        padding: 20px;
+      }
+    }
+    & .joinButton {
       display: flex;
       width: 150px;
       justify-content: center;
@@ -194,7 +217,7 @@ const MeetingDescriptionContainer = styled.section`
       border: 1px solid var(--color-green);
       border-radius: 15px;
 
-      svg {
+      & svg {
         color: var(--color-white);
         font-size: 15px;
       }
@@ -204,23 +227,23 @@ const MeetingDescriptionContainer = styled.section`
         transform: scale(1.1);
       }
     }
-    p {
+    & p {
       padding: 12px 12px 12px 0px;
       color: var(--color-black);
       font-size: 1.5rem;
     }
-    h3 {
+    & h3 {
       font-size: 5.5rem;
       font-weight: 600;
     }
 
-    .meetingTypeVideo {
+    & .meetingTypeVideo {
       display: block;
       aspect-ratio: 16 / 9;
       height: auto;
       width: 90%;
 
-      video {
+      & video {
         height: 100%;
         width: 100%;
         border-radius: 10px;

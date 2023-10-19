@@ -19,20 +19,15 @@ const About = () => {
     });
 
     AOS.init({
-      duration: 800,
+      duration: 500,
       easing: "ease",
       once: true,
     });
   }, []);
 
   return (
-    <AboutSection>
-      <h2
-        className="aboutText"
-        id="about"
-        data-aos="fade-up"
-        data-aos-delay="100"
-      >
+    <AboutSection id="about">
+      <h2 className="aboutText" data-aos="fade-up" data-aos-delay="100">
         Discover a website that brings car enthusiasts together to enjoy
         exhilarating car meets solely for the joy of having fun.
       </h2>

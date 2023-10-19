@@ -65,6 +65,7 @@ body{
     width: 100%;
     height: 100%;
     overflow-x: hidden;
+    background-color: var(--background-color-black);
     font-family: var(--font-roboto);
 
 }

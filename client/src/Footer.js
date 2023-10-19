@@ -184,5 +184,29 @@ const FooterSection = styled.footer`
 
     background-color: rgba(255, 255, 255, 1);
   }
+
+  @media screen and (max-width: 500px) {
+    & aside {
+      grid-template-rows: repeat(2, 1fr);
+      grid-template-columns: repeat(2, 1fr);
+
+      & .logoText {
+        grid-column: 1/3;
+        grid-row: 1/4;
+      }
+
+      & .navigationFooter {
+        padding-left: 40px;
+      }
+    }
+    & .copyright {
+      width: 100%;
+      align-self: center;
+      gap: 10px;
+      & .termsPrivacy a {
+        margin: 0 0px;
+      }
+    }
+  }
 `;
 export default Footer;

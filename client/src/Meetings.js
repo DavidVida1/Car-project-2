@@ -112,7 +112,7 @@ const MeetingsSection = styled.main`
   min-height: 100vh;
   width: 100%;
   background-color: var(--color-off-white2);
-  padding: 16rem 8rem;
+  padding: max(200px, 10%) 5% 10% 5%;
   display: grid;
   grid-template-rows: 75px auto;
 
@@ -121,7 +121,7 @@ const MeetingsSection = styled.main`
     display: flex;
     flex-direction: row;
     justify-content: center;
-
+    flex-wrap: wrap;
     width: 100%;
 
     & .meetingsButton {
@@ -153,8 +153,8 @@ const MeetingsSection = styled.main`
       flex-direction: row;
       justify-content: space-around;
       flex-wrap: wrap;
-      gap: 75px;
-      margin-top: 12rem;
+      gap: 50px;
+      margin-top: 5rem;
     }
 
     .loading {

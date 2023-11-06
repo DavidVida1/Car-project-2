@@ -15,7 +15,7 @@ const meetingTypeArray = [
     heroImg: chillingImg,
     text: "Memories",
     description:
-      "Discover a website that brings car enthusiasts together to enjoy exhilarating car meets solely for the joy of having fun.",
+      "Explore the coolest car gatherings that send shivers down your spine as horsepower and adrenaline unite",
     video: chilling,
   },
   {
@@ -24,7 +24,7 @@ const meetingTypeArray = [
     heroImg: cruisingImg,
     text: "Cruise",
     description:
-      "Discover a website that brings car enthusiasts together to enjoy exhilarating car meets solely for the joy of having fun.",
+      "Embark on a journey of pure automotive bliss with our cruising events, where the open road becomes your playground.",
     video: cruising,
   },
   {
@@ -33,7 +33,7 @@ const meetingTypeArray = [
     heroImg: socializeImg,
     text: "Connect",
     description:
-      "Discover a website that brings car enthusiasts together to enjoy exhilarating car meets solely for the joy of having fun.",
+      "Connect with fellow car enthusiasts, share your passion, and build lasting relationships at our socialize events for automotive aficionados.",
     video: social,
   },
   {
@@ -42,7 +42,7 @@ const meetingTypeArray = [
     heroImg: racingImg,
     text: "Compete",
     description:
-      "Discover a website that brings car enthusiasts together to enjoy exhilarating car meets solely for the joy of having fun.",
+      "Experience the thrill of high-speed competition and push your limits at our racing events, where horsepower and adrenaline take center stage",
     video: racing,
   },
 ];

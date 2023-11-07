@@ -27,7 +27,7 @@ const Header = () => {
   return (
     <HeaderContainer data-aos="fade-down" data-aos-delay="100">
       <a href="/" className="logo">
-        <img src="/assets/svg/logo.svg" alt="MeetNRev Logo" />
+        <img src="assets/svg/logo.svg" alt="MeetNRev Logo" />
       </a>
 
       <div id="mqNav" className="overlay">

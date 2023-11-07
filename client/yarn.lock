@@ -1710,10 +1710,10 @@
     "schema-utils" "^3.0.0"
     "source-map" "^0.7.3"
 
-"@remix-run/router@1.8.0":
-  "integrity" "sha512-mrfKqIHnSZRyIzBcanNJmVQELTnX+qagEDlcKO90RgRBVOZGSGvZKeDihTRfWcqoDn5N/NkUcwWTccnpN18Tfg=="
-  "resolved" "https://registry.npmjs.org/@remix-run/router/-/router-1.8.0.tgz"
-  "version" "1.8.0"
+"@remix-run/router@1.11.0":
+  "integrity" "sha512-BHdhcWgeiudl91HvVa2wxqZjSHbheSgIiDvxrF1VjFzBzpTtuDPkOdOi3Iqvc08kXtFkLjhbS+ML9aM8mJS+wQ=="
+  "resolved" "https://registry.npmjs.org/@remix-run/router/-/router-1.11.0.tgz"
+  "version" "1.11.0"
 
 "@rollup/plugin-babel@^5.2.0":
   "integrity" "sha512-WFfdLWU/xVWKeRQnKmIAQULUI7Il0gZnBIH/ZFO069wYIfPu+8zrfp/KMW0atmELoRDq8FbiP3VCss9MhCut7Q=="
@@ -7926,20 +7926,20 @@
   "resolved" "https://registry.npmjs.org/react-refresh/-/react-refresh-0.11.0.tgz"
   "version" "0.11.0"
 
-"react-router-dom@^6.15.0":
-  "integrity" "sha512-aR42t0fs7brintwBGAv2+mGlCtgtFQeOzK0BM1/OiqEzRejOZtpMZepvgkscpMUnKb8YO84G7s3LsHnnDNonbQ=="
-  "resolved" "https://registry.npmjs.org/react-router-dom/-/react-router-dom-6.15.0.tgz"
-  "version" "6.15.0"
+"react-router-dom@^6.18.0":
+  "integrity" "sha512-Ubrue4+Ercc/BoDkFQfc6og5zRQ4A8YxSO3Knsne+eRbZ+IepAsK249XBH/XaFuOYOYr3L3r13CXTLvYt5JDjw=="
+  "resolved" "https://registry.npmjs.org/react-router-dom/-/react-router-dom-6.18.0.tgz"
+  "version" "6.18.0"
   dependencies:
-    "@remix-run/router" "1.8.0"
-    "react-router" "6.15.0"
+    "@remix-run/router" "1.11.0"
+    "react-router" "6.18.0"
 
-"react-router@6.15.0":
-  "integrity" "sha512-NIytlzvzLwJkCQj2HLefmeakxxWHWAP+02EGqWEZy+DgfHHKQMUoBBjUQLOtFInBMhWtb3hiUy6MfFgwLjXhqg=="
-  "resolved" "https://registry.npmjs.org/react-router/-/react-router-6.15.0.tgz"
-  "version" "6.15.0"
+"react-router@6.18.0":
+  "integrity" "sha512-vk2y7Dsy8wI02eRRaRmOs9g2o+aE72YCx5q9VasT1N9v+lrdB79tIqrjMfByHiY5+6aYkH2rUa5X839nwWGPDg=="
+  "resolved" "https://registry.npmjs.org/react-router/-/react-router-6.18.0.tgz"
+  "version" "6.18.0"
   dependencies:
-    "@remix-run/router" "1.8.0"
+    "@remix-run/router" "1.11.0"
 
 "react-scripts@5.0.1":
   "integrity" "sha512-8VAmEm/ZAwQzJ+GOMLbBsTdDKOpuZh7RPs0UymvBR2vRk4iZWCskjbFnxqjrzoIvlNNRZ3QJFx6/qDSi6zSnaQ=="

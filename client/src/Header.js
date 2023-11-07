@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -40,7 +40,7 @@ const Header = () => {
             <a href="/">Home</a>
           </li>
           <li>
-            <a href="./#abouts">About</a>
+            <a href="./#about">About</a>
           </li>
           <li>
             <a href="#">SetUpMeeting</a>

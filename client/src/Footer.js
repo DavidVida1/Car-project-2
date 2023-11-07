@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { FiFacebook } from "react-icons/fi";
 import { FiTwitter } from "react-icons/fi";
 import { AiOutlineInstagram } from "react-icons/ai";
@@ -34,7 +34,7 @@ const Footer = () => {
           <h3>Navigation</h3>
           <ul>
             <li>
-              <a href="#">About us</a>
+              <a href="/#about">About us</a>
             </li>
             <li href="#">
               <a href="#">SetUpMeeting</a>

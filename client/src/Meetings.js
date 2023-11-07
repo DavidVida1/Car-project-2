@@ -93,6 +93,7 @@ const Meetings = () => {
             {meetingDatabase.map((meeting) => {
               return (
                 <MeetingCards
+                  key={meeting.name}
                   meeting={meeting}
                   meetingTypeSelected={meetingTypeArray.find((t) => {
                     return t.name == meeting.typeId;

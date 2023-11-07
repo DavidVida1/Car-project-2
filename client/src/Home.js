@@ -20,7 +20,7 @@ const Home = () => {
   }, []);
 
   return (
-    <>
+    <div>
       <ContainerHome>
         <video src={HeroVideo} autoPlay loop muted alt="hero-video" />
         <aside className="heroText">
@@ -38,7 +38,7 @@ const Home = () => {
       <About />
       <MeetingsHeroImg />
       <MeetingDescription />
-    </>
+    </div>
   );
 };
 const ContainerHome = styled.section`

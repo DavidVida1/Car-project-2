@@ -50,7 +50,7 @@ const MeetingDescription = () => {
           </header>
           {meetingTypeArray.map((meeting, index) => {
             return (
-              <li key={meeting}>
+              <li key={meeting.name}>
                 <button
                   id={meeting.name}
                   onClick={() => {

@@ -68,7 +68,7 @@ const Footer = () => {
       </aside>
 
       <section className="copyright">
-        <div className>© 2023 MeetNRev. All Rights Reserved</div>
+        <div>© 2023 MeetNRev. All Rights Reserved</div>
         <div className="termsPrivacy">
           <a href="#">Terms of Service</a>
           <a href="#">Privacy Policy</a>

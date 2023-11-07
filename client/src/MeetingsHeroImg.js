@@ -17,7 +17,12 @@ const About = () => {
     <MeetingHeroImgSection>
       {meetingTypeArray.map((meetingImg, index) => {
         return (
-          <aside className="imgContent" data-aos="fade-up" data-aos-delay="100">
+          <aside
+            key={index}
+            className="imgContent"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
             <img className="heroImg" src={meetingImg.heroImg}></img>
             <h2 className="heroText">{meetingImg.text}</h2>
           </aside>

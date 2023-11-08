@@ -85,6 +85,7 @@ const Meetings = () => {
           );
         })}
       </nav>
+
       <section className="meetingList">
         {meetingDatabase == null ? (
           <article className="loading">Loading...</article>

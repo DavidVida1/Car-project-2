@@ -5,6 +5,7 @@ import { FiTwitter } from "react-icons/fi";
 import { AiOutlineInstagram } from "react-icons/ai";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import logoReverse from "./assets/svg/logoReverse.svg";
 
 const Footer = () => {
   useEffect(() => {
@@ -18,7 +19,7 @@ const Footer = () => {
     <FooterSection>
       <aside>
         <section className="logoText" data-aos="fade-up" data-aos-delay="100">
-          <img src="assets/svg/logoReverse.svg" alt="MeetNRev Logo" />{" "}
+          <img src={logoReverse} alt="MeetNRev Logo" />{" "}
           <p>
             Rev Up Your Social Life: Connect, Cruise, and Create Memories with
             MeetNRev!&nbsp;

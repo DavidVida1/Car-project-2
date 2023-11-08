@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import logo from "./assets/svg/logo.svg";
 
 const Header = () => {
   const openNav = () => {
@@ -26,9 +28,9 @@ const Header = () => {
 
   return (
     <HeaderContainer data-aos="fade-down" data-aos-delay="100">
-      <a href="/" className="logo">
-        <img src="assets/svg/logo.svg" alt="MeetNRev Logo" />
-      </a>
+      <Link to="/" className="logo">
+        <img src={logo} alt="MeetNRev Logo" />
+      </Link>
 
       <div id="mqNav" className="overlay">
         <span className="closebtn" onClick={closeNav}>
@@ -37,21 +39,21 @@ const Header = () => {
 
         <ul className="overlay-content">
           <li>
-            <a href="/">Home</a>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <a href="./#about">About</a>
+            <Link to="/#about">About</Link>
           </li>
           <li>
-            <a href="#">SetUpMeeting</a>
+            <Link to="#">SetUpMeeting</Link>
           </li>
           <li className="user">
-            <a href="#" className="Login">
+            <Link to="#" className="Login">
               Log in
-            </a>
-            <a href="#" className="sign">
+            </Link>
+            <Link to="#" className="sign">
               Sign Up
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

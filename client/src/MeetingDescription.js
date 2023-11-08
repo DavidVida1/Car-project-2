@@ -5,6 +5,7 @@ import meetingTypeArray from "./MeetingTypeArray";
 import { useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import carGo from "./assets/svg/carGo.svg";
 
 const MeetingDescription = () => {
   const navigate = useNavigate();
@@ -45,7 +46,7 @@ const MeetingDescription = () => {
         <ul>
           <header>
             <h4>
-              Meeting Type <img src="./assets/svg/carGo.svg" alt="carGo img" />
+              Meeting Type <img src={carGo} alt="carGo img" />
             </h4>
           </header>
           {meetingTypeArray.map((meeting, index) => {

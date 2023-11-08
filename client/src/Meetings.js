@@ -91,10 +91,10 @@ const Meetings = () => {
           <article className="loading">Loading...</article>
         ) : (
           <section data-aos="fade-up" data-aos-delay="100">
-            {meetingDatabase.map((meeting) => {
+            {meetingDatabase.map((meeting, index) => {
               return (
                 <MeetingCards
-                  key={meeting.name}
+                  key={index + "" + meeting.name}
                   meeting={meeting}
                   meetingTypeSelected={meetingTypeArray.find((t) => {
                     return t.name == meeting.typeId;

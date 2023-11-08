@@ -9,6 +9,16 @@ const Header = () => {
   const openNav = () => {
     let element = document.getElementById("mqNav");
     element.classList.add("open");
+
+    /*Close nav on click on mobile*/
+    let menuLinks = document.querySelectorAll(".overlay-content li a");
+
+    menuLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        let element = document.getElementById("mqNav");
+        element.classList.remove("open");
+      });
+    });
   };
 
   const closeNav = (e) => {
@@ -42,7 +52,7 @@ const Header = () => {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/#about">About</Link>
+            <Link to="/meetings/all">Meetings</Link>
           </li>
           <li>
             <Link to="#">SetUpMeeting</Link>
